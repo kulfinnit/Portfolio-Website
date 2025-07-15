@@ -45,6 +45,12 @@ nav a {
     font-weight: 600;
     font-size: 1.1rem;
     transition: color 0.3s ease;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+
 }
 
 nav a:hover {
@@ -78,6 +84,11 @@ h2 {
     scroll-snap-type: x mandatory;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem;
+    gap: 1rem;
+    }
+
 }
 
 .scroll-x::-webkit-scrollbar {
@@ -412,4 +423,75 @@ button:hover {
     height: 100%;
     z-index: -10;
     background: linear-gradient(135deg, #e0f0ff, #f8fbff);
+}
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .services-list {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 1rem;
+    }
+
+    .service {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .game-card iframe {
+        height: 300px; /* smaller game frames for mobile */
+    }
+
+    form input,
+    form textarea {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .scroll-x {
+        overflow-x: auto;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+    }
+
+    #project-list {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .socials {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer {
+        text-align: center;
+        font-size: 14px;
+        padding: 1rem;
+    }
+
+    .floating-buttons {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .float-btn {
+        width: 45px;
+        height: 45px;
+    }
 }
