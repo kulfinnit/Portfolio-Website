@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
       codeLink: "https://github.com/kulfinnit/guess-gara-game",
     },
     {
-      title: "Snake Game",
-      description: "Classic snake game made using HTML canvas.",
-      image: "images/snake.png",
-      demoLink: "games/snake/index.html",
-      codeLink: "https://github.com/kulfinnit",
+      title: "Portfolio Website",
+      description: "This website right here.",
+      image: "images/portfolio.png",
+      demoLink: "https://kulfinnit.github.io/Portfolio-Website",
+      codeLink: "https://github.com/kulfinnit/Portfolio-Website",
     },
     // Add more projects here
     {
