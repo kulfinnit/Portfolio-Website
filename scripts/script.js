@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // --- Project Cards ---
   const projects = [
     {
       title: "Guess Gara",
@@ -14,13 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
       demoLink: "https://kulfinnit.github.io/Portfolio-Website",
       codeLink: "https://github.com/kulfinnit/Portfolio-Website",
     },
-    // Add more projects here
     {
       title: "Placement Cell",
       description: "A campus recruitment system made using Python Django",
       image: "images/placement-cell.png",
       demoLink: "https://kulfinit.github.io/placement-cell",
-      codeLink: "https://github/kulfinnit/placement-cell",
+      codeLink: "https://github.com/kulfinnit/placement-cell",
     },
   ];
 
@@ -37,10 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
       <a href="${project.codeLink}" target="_blank">💻 Code</a>
     `;
     projectList.appendChild(card);
+
+    // Bounce on click
+    card.addEventListener("click", () => {
+      card.style.transition = "transform 0.2s ease";
+      card.style.transform = "scale(0.97)";
+      setTimeout(() => {
+        card.style.transform = "translateY(-8px) scale(1.03)";
+      }, 150);
+      setTimeout(() => {
+        card.style.transform = "scale(1)";
+      }, 350);
+    });
   });
-});
-// Email copy functionality
-document.addEventListener("DOMContentLoaded", () => {
+
+  // --- Email Copy to Clipboard ---
   const emailLink = document.querySelector('a[href^="mailto:"]');
   if (emailLink) {
     emailLink.addEventListener("click", (e) => {
@@ -52,51 +63,42 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 2000);
     });
   }
-});
-// Drag for floating buttons
-const floatWrapper = document.querySelector(".floating-buttons");
-let isDragging = false;
-let offset = { x: 0, y: 0 };
 
-floatWrapper.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  offset.x = e.clientX - floatWrapper.getBoundingClientRect().left;
-  offset.y = e.clientY - floatWrapper.getBoundingClientRect().top;
-  floatWrapper.style.cursor = "grabbing";
-});
+  // --- Floating Button Drag ---
+  const floatWrapper = document.querySelector(".floating-buttons");
+  if (floatWrapper) {
+    let isDragging = false;
+    let offset = { x: 0, y: 0 };
 
-document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-  floatWrapper.style.left = e.clientX - offset.x + "px";
-  floatWrapper.style.top = e.clientY - offset.y + "px";
-  floatWrapper.style.bottom = "unset";
-  floatWrapper.style.right = "unset";
-});
+    const startDrag = (e) => {
+      isDragging = true;
+      const clientX = e.clientX || e.touches[0].clientX;
+      const clientY = e.clientY || e.touches[0].clientY;
+      offset.x = clientX - floatWrapper.getBoundingClientRect().left;
+      offset.y = clientY - floatWrapper.getBoundingClientRect().top;
+      floatWrapper.style.cursor = "grabbing";
+    };
 
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-  floatWrapper.style.cursor = "grab";
+    const drag = (e) => {
+      if (!isDragging) return;
+      const clientX = e.clientX || e.touches[0].clientX;
+      const clientY = e.clientY || e.touches[0].clientY;
+      floatWrapper.style.left = clientX - offset.x + "px";
+      floatWrapper.style.top = clientY - offset.y + "px";
+      floatWrapper.style.bottom = "unset";
+      floatWrapper.style.right = "unset";
+    };
+
+    const stopDrag = () => {
+      isDragging = false;
+      floatWrapper.style.cursor = "grab";
+    };
+
+    floatWrapper.addEventListener("mousedown", startDrag);
+    floatWrapper.addEventListener("touchstart", startDrag);
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("touchmove", drag);
+    document.addEventListener("mouseup", stopDrag);
+    document.addEventListener("touchend", stopDrag);
+  }
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const emailLink = document.querySelector('a[href^="mailto:"]');
-  emailLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(emailLink.href.replace("mailto:", ""));
-    emailLink.innerHTML = '<i class="fas fa-envelope"></i> Email Copied!';
-    setTimeout(() => {
-      emailLink.innerHTML = '<i class="fas fa-envelope"></i> Email Me';
-    }, 2000);
-  });
-});
-// Bounce effect on project/game card click
-document
-  .querySelectorAll("#project-list .project-card, .game-card")
-  .forEach((card) => {
-    card.addEventListener("click", () => {
-      card.style.transition = "transform 0.2s ease";
-      card.style.transform = "scale(0.97)";
-      setTimeout(() => {
-        card.style.transform = "translateY(-8px) scale(1.03)";
-      }, 150);
-    });
-  });
