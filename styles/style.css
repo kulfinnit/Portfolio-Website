@@ -88,6 +88,40 @@ nav a:hover::after {
     box-shadow: 0 0 15px rgba(0, 255, 224, 0.4);
     border: none;
 }
+.project-card img {
+    width: 100%;
+    max-width: 50px; /* or whatever size works for your layout */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.more-projects-note {
+    text-align: center;
+    margin: 30px auto;
+    color: #ccc;
+}
+
+.more-projects-note hr {
+    width: 60%;
+    border: none;
+    height: 1px;
+    background: #a442ff;
+    margin-bottom: 10px;
+}
+
+.more-projects-note a {
+    color: #a442ff;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.more-projects-note a:hover {
+    text-decoration: underline;
+}
 
 /* Games */
 .game-card {

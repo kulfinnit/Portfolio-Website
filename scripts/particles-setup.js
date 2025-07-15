@@ -15,7 +15,7 @@ particlesJS("particles-js", {
   interactivity: {
     detect_on: "canvas",
     events: {
-      onhover: { enable: false },
+      onhover: { enable: true },
       onclick: { enable: false },
       resize: true,
     },
