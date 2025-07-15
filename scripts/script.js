@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     card.className = "project-card";
     card.innerHTML = `
-      <img src="${project.image}" alt="${project.title}" />
+      <img src="${project.image}" alt= "Screenshot of ${project.title} project" />
       <h3>${project.title}</h3>
       <p>${project.description}</p>
       <a href="${project.demoLink}" target="_blank">🔗 Demo</a> |
