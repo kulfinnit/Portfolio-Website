@@ -28,6 +28,14 @@ header {
     text-align: center;
     padding: 40px 20px;
 }
+a {
+    color: #00ffe0; /* default link color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff00ff; /* hover color */
+}
 
 /* Navigation */
 nav {
@@ -151,6 +159,17 @@ form button:hover {
     gap: 15px;
     flex-wrap: wrap;
     margin-top: 20px;
+}
+.socials a {
+    color: #00bfae;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: #f95738;
 }
 
 /* WhatsApp Floating Button */
