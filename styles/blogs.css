@@ -51,7 +51,7 @@ a:hover {
 }
 
 .blog-post.expanded .content {
-    max-height: 1100px; /* Adjust as needed */
+    max-height: 2000px; /* Adjust as needed */
 }
 
 .read-more {
