@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kabiraj.dev/</loc>
+    <loc>https://www.kabiraj.dev/</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kabiraj.dev/#projects</loc>
-  </url>
-  <url>
-    <loc>https://kabiraj.dev/#games</loc>
-  </url>
-  <url>
-    <loc>https://kabiraj.dev/#services</loc>
-  </url>
-  <url>
-    <loc>https://kabiraj.dev/#contact</loc>
+    <loc>https://www.kabiraj.dev/blogs/</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
