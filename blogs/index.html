@@ -10,6 +10,10 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
             rel="stylesheet"
         />
+        <link
+            href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+            rel="stylesheet"
+        />
         <link rel="canonical" href="https://kabiraj.dev/blogs/" />
         <script
             src="https://kit.fontawesome.com/a076d05399.js"
@@ -25,7 +29,7 @@
             </nav>
         </header>
 
-        <section class="blog-post">
+        <section class="blog-post" data-aos="zoom-in" data-aos-delay="300">
             <h2>Why I Built This Portfolio</h2>
             <p><em>Posted July 2025</em></p>
             <div class="content">
@@ -88,7 +92,7 @@
             >
         </section>
 
-        <section class="blog-post">
+        <section class="blog-post" data-aos="zoom-in" data-aos-delay="150">
             <h2>My Favorite Dev Tools</h2>
             <p><em>Posted July 2025</em></p>
             <div class="content">
@@ -179,10 +183,17 @@
                 >Read More</span
             >
         </section>
-
-        <script src="../scripts/blogs.js"></script>
         <footer>
             <p>&copy; 2025 Kabiraj Sapkota | All rights reserved.</p>
         </footer>
+        <script src="../scripts/blogs.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                easing: "ease-in-out",
+                once: true,
+                mirror: false,
+            });
+        </script>
     </body>
 </html>

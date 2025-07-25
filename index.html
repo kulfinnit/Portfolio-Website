@@ -47,6 +47,10 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
             rel="stylesheet"
         />
+        <link
+            href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="styles/style.css" />
         <link
             rel="stylesheet"
@@ -94,7 +98,11 @@
             <div id="project-list" class="scroll-x">
                 <!--Projects loaded by script.js -->
             </div>
-            <div class="more-projects-note">
+            <div
+                class="more-projects-note"
+                data-aos="slide-left"
+                data-aos-delay="200"
+            >
                 <hr />
                 <p>
                     and many more on my
@@ -107,28 +115,48 @@
         <section id="services">
             <h2>What I Do</h2>
             <div class="services-list">
-                <div class="service">
+                <div
+                    class="service"
+                    data-aos="flip-left"
+                    data-aos-delay="300"
+                    data-aos-duration="1000"
+                >
                     <h3><i class="fas fa-globe"></i> Website Development</h3>
                     <p>
                         I build responsive, fast-loading websites using modern
                         tools and best practices.
                     </p>
                 </div>
-                <div class="service">
+                <div
+                    class="service"
+                    data-aos="flip-left"
+                    data-aos-delay="400"
+                    data-aos-duration="1000"
+                >
                     <h3><i class="fas fa-code"></i> Software Development</h3>
                     <p>
                         From scripts to full-scale apps — I design and build
                         efficient backend systems & tools.
                     </p>
                 </div>
-                <div class="service">
+                <div
+                    class="service"
+                    data-aos="flip-left"
+                    data-aos-delay="500"
+                    data-aos-duration="1000"
+                >
                     <h3><i class="fas fa-pen-nib"></i> Graphics Design</h3>
                     <p>
                         Logo design, posters, social media creatives — I bring
                         visuals to life with clean aesthetics.
                     </p>
                 </div>
-                <div class="service">
+                <div
+                    class="service"
+                    data-aos="flip-left"
+                    data-aos-delay="600"
+                    data-aos-duration="1000"
+                >
                     <h3>
                         <i class="fas fa-photo-video"></i> Photo/Video Editing
                     </h3>
@@ -168,8 +196,21 @@
                 I'm available for freelance or full-time roles. Let's build
                 something great!
             </p>
-            <a href="resume.pdf" download>📄 Download My Resume</a>
-            <form action="https://formspree.io/f/xyzpyjzz" method="POST">
+            <a
+                href="resume.pdf"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="1000"
+                download
+                >📄 Download My Resume</a
+            >
+            <form
+                action="https://formspree.io/f/xyzpyjzz"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-duration="500"
+                method="POST"
+            >
                 <input
                     type="text"
                     name="name"
@@ -189,7 +230,12 @@
                 ></textarea>
                 <button type="submit">Send</button>
             </form>
-            <div class="socials">
+            <div
+                class="socials"
+                data-aos="fade-up"
+                data-aos-delay="150"
+                data-aos-duration="600"
+            >
                 <a href="mailto:contact@kabiraj.dev" title="Send me an email"
                     ><i class="fas fa-envelope"></i> Email Me</a
                 >
@@ -237,5 +283,13 @@
         <script src="scripts/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
         <script src="scripts/particles-setup.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                easing: "ease-in-out",
+                once: true,
+                mirror: false,
+            });
+        </script>
     </body>
 </html>

@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   projects.forEach((project) => {
     const card = document.createElement("div");
     card.className = "project-card";
+    card.setAttribute("data-aos", "slide-up");
+    card.setAttribute("data-aos-delay", "200");
     card.innerHTML = `
       <img src="${project.image}" alt= "Screenshot of ${project.title} project" />
       <h3>${project.title}</h3>
