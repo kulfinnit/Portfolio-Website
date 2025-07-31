@@ -1,13 +1,29 @@
-
-  window.addEventListener("load", () => {
-    const loader = document.getElementById("loader-overlay");
-    setTimeout(() => {
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("loader-overlay");
+  
+  // Set a maximum timeout as fallback
+  const hideLoader = () => {
+    if (loader) {
       loader.style.opacity = "0";
-      setTimeout(() => loader.remove(), 600); // fade out duration
-    }, 1000); // show for 2 seconds before fade
+      setTimeout(() => {
+        if (loader.parentNode) {
+          loader.remove();
+        }
+      }, 600); // fade out duration
+    }
+  };
+  
+  // Hide loader after DOM is ready + small delay for animation
+  setTimeout(hideLoader, 1000);
+  
+  // Also hide on window load as backup (in case DOM loads faster than expected)
+  window.addEventListener("load", () => {
+    // Only hide if still visible
+    if (loader && loader.style.opacity !== "0") {
+      setTimeout(hideLoader, 500);
+    }
   });
-
-
+});
 document.addEventListener("DOMContentLoaded", () => {
   // --- Project Cards ---
   const projects = [
