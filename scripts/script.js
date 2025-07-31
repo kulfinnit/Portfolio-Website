@@ -1,20 +1,3 @@
-window.addEventListener("load", function () {
-  const loader = document.getElementById("loader");
-  const content = document.getElementById("main-content");
-
-  // Wait 0.5 seconds before starting fade-out
-  setTimeout(() => {
-    loader.style.opacity = "0";
-    loader.style.pointerEvents = "none"; // Disable clicks while fading out
-
-    // After fade-out animation (0.5s), hide loader and show content
-    setTimeout(() => {
-      loader.style.display = "none";
-      content.style.display = "block";
-    }, 500);
-  }, 500);
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   // --- Project Cards ---
   const projects = [
