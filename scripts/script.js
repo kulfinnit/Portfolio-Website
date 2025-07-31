@@ -1,7 +1,122 @@
+// Mobile-only loader fix 
+(function() {
+  // Check if it's a mobile device
+  function isMobileDevice() {
+    return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  
+  // Mobile-specific loader centering
+  function fixMobileLoader() {
+    if (!isMobileDevice()) return; // Skip if not mobile
+    
+    const loader = document.getElementById("loader-overlay");
+    const logo = document.querySelector(".loader-logo");
+    
+    if (loader) {
+      // Mobile-specific overlay fix
+      loader.style.cssText = `
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: #000 !important;
+        z-index: 99999 !important;
+        transition: opacity 0.5s ease;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      `;
+      
+      // Force flexbox centering for mobile
+      loader.style.display = 'flex';
+      loader.style.justifyContent = 'center';
+      loader.style.alignItems = 'center';
+      
+      // Additional mobile viewport fixes
+      loader.style.minHeight = '100vh';
+      loader.style.minHeight = '-webkit-fill-available';
+    }
+    
+    if (logo) {
+      // Mobile-specific logo positioning
+      logo.style.cssText = `
+        width: 80px !important;
+        height: auto !important;
+        display: block !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        transform: none !important;
+        float: none !important;
+        animation: pulse 1.5s ease-in-out infinite;
+      `;
+      
+      // Force re-center with absolute positioning as backup
+      setTimeout(() => {
+        if (isMobileDevice()) {
+          logo.style.position = 'absolute';
+          logo.style.top = '50%';
+          logo.style.left = '50%';
+          logo.style.transform = 'translate(-50%, -50%)';
+          logo.style.animation = 'pulse-mobile 1.5s ease-in-out infinite';
+        }
+      }, 50);
+    }
+  }
+  
+  // Apply the fix immediately and on various events
+  fixMobileLoader();
+  
+  // Apply when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixMobileLoader);
+  } else {
+    fixMobileLoader();
+  }
+  
+  // Apply on window load
+  window.addEventListener('load', fixMobileLoader);
+  
+  // Apply on orientation change (mobile specific)
+  window.addEventListener('orientationchange', () => {
+    setTimeout(fixMobileLoader, 100);
+  });
+  
+  // Apply on resize (for mobile browsers changing viewport)
+  window.addEventListener('resize', () => {
+    if (isMobileDevice()) {
+      setTimeout(fixMobileLoader, 50);
+    }
+  });
+})();
+
+// Add mobile-specific CSS animation
+const mobileStyle = document.createElement('style');
+mobileStyle.textContent = `
+  @media (max-width: 768px) {
+    @keyframes pulse-mobile {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1) !important;
+        opacity: 1 !important;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1) !important;
+        opacity: 0.6 !important;
+      }
+    }
+  }
+`;
+document.head.appendChild(mobileStyle);
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader-overlay");
   
-  // Set a maximum timeout as fallback
   const hideLoader = () => {
     if (loader) {
       loader.style.opacity = "0";
@@ -9,21 +124,20 @@ document.addEventListener("DOMContentLoaded", () => {
         if (loader.parentNode) {
           loader.remove();
         }
-      }, 600); // fade out duration
+      }, 600);
     }
   };
   
-  // Hide loader after DOM is ready + small delay for animation
   setTimeout(hideLoader, 1000);
   
-  // Also hide on window load as backup (in case DOM loads faster than expected)
   window.addEventListener("load", () => {
-    // Only hide if still visible
     if (loader && loader.style.opacity !== "0") {
       setTimeout(hideLoader, 500);
     }
   });
 });
+
+// Rest of your existing code...
 document.addEventListener("DOMContentLoaded", () => {
   // --- Project Cards ---
   const projects = [

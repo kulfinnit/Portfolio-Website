@@ -1,6 +1,3 @@
-/* Replace your current #loader-overlay CSS with this improved version */
-/* IMPORTANT: Put this at the very top of your CSS file for priority */
-
 #loader-overlay {
   position: fixed !important;
   top: 0 !important;
@@ -51,8 +48,6 @@
     opacity: 0.6;
   }
 }
-
-/* Mobile-specific adjustments - Remove the separate mobile rules since main rules now handle it */
 @media (max-width: 768px) {
   .loader-logo {
     width: 80px !important; /* Slightly smaller on mobile */
@@ -348,4 +343,22 @@ footer {
         width: 45px;
         height: 45px;
     }
+}
+/* Mobile loader backup */
+@media (max-width: 768px) {
+  #loader-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .loader-logo {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 80px !important;
+  }
 }
