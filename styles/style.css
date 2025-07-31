@@ -1,3 +1,32 @@
+#loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000; /* Change if needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.5s ease;
+}
+
+.loader-logo {
+  width: 100px; /* adjust as needed */
+  height: auto;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+
 /* General Reset */
 * {
     box-sizing: border-box;

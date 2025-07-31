@@ -1,3 +1,13 @@
+
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader-overlay");
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 600); // fade out duration
+    }, 1000); // show for 2 seconds before fade
+  });
+
+
 document.addEventListener("DOMContentLoaded", () => {
   // --- Project Cards ---
   const projects = [
