@@ -1,18 +1,30 @@
+/* Replace your current #loader-overlay CSS with this improved version */
+
 #loader-overlay {
   position: fixed;
   inset: 0;
-  background: #000; /* Change if needed */
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10000;
   transition: opacity 0.5s ease;
+  /* Mobile-specific fixes */
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available; /* iOS Safari fix */
 }
 
 .loader-logo {
-  width: 100px; /* adjust as needed */
+  width: 100px;
   height: auto;
   animation: pulse 1.5s ease-in-out infinite;
+  /* Ensure the logo itself is centered */
+  display: block;
+  max-width: 90vw; /* Prevent overflow on very small screens */
+  /* Additional centering insurance */
+  margin: auto;
 }
 
 @keyframes pulse {
@@ -26,6 +38,42 @@
   }
 }
 
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  #loader-overlay {
+    /* Force full screen coverage on mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* iOS Safari specific */
+    height: -webkit-fill-available;
+  }
+  
+  .loader-logo {
+    width: 80px; /* Slightly smaller on mobile */
+    /* Alternative centering method for stubborn devices */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-mobile 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-mobile {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.6;
+    }
+  }
+}
 
 /* General Reset */
 * {
